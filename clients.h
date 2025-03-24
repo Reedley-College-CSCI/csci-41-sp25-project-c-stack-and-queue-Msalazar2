@@ -83,7 +83,11 @@ class Clients { //here I added a class to hold structs
                 cout << "" << endl;
                 campaignInfo.print();
             }
+
         };
+
+        AllClientData* clientFile;
+        int capacity;
         
         Clients();
         ~Clients();
@@ -97,8 +101,6 @@ class Clients { //here I added a class to hold structs
         void restoreClient();
 
         private: 
-         AllClientData* clientFile;
-         int capacity;
          SinglyLinkedNode::TrashList trashbin;
 
          //helper functions to declare functions in private.
