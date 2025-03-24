@@ -318,4 +318,16 @@ bool SinglyLinkedNode::TrashList::Search(int id) const {
 bool SinglyLinkedNode::TrashList::Restore(Clients& clients, int id) {
     Node* current = head;
     Node* prev = nullptr;
+
+    while (current) {
+        if (current->clientInfo.clientInfo.id == id) {
+            int updatedCapacity = clients.capacity + 1;
+            Clients::AllClientData* updatedClients = new Clients::AllClientData[updatedCapacity];
+            
+            for (int i = 0; i < clients.capacity; ++i) {
+                updatedClients[i] = clients.clientFile[i]
+            }
+
+
+    }
 }
