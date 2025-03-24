@@ -323,11 +323,17 @@ bool SinglyLinkedNode::TrashList::Restore(Clients& clients, int id) {
         if (current->clientInfo.clientInfo.id == id) {
             int updatedCapacity = clients.capacity + 1;
             Clients::AllClientData* updatedClients = new Clients::AllClientData[updatedCapacity];
-            
+
             for (int i = 0; i < clients.capacity; ++i) {
-                updatedClients[i] = clients.clientFile[i]
+                updatedClients[i] = clients.clientFile[i];
             }
 
+            updatedClients[clients.capacity] = current->clientInfo;
+
+            delete[] clients.clientFile;
+            clients.clientFile = updatedClients;
+            clients.capacity = updatedCapacity;
+        }
 
     }
 }
