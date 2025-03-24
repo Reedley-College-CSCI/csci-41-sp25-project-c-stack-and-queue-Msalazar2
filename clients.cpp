@@ -313,3 +313,9 @@ bool SinglyLinkedNode::TrashList::Search(int id) const {
     cout << "Client not found in trash bin." << endl;
     return false;
 }
+
+//creating a restore function that will allow users to restore deleted files
+bool SinglyLinkedNode::TrashList::Restore(Clients& clients, int id) {
+    Node* current = head;
+    Node* prev = nullptr;
+}
