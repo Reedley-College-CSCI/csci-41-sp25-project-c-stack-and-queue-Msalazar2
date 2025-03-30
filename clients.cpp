@@ -273,7 +273,7 @@ void Clients::removeClient() {
     }
 };
 //creating function to append deleted clients to the end of the list
-void SinglyLinkedNode::TrashList::Append(const Clients::AllClientData& deletedClient) {
+void SinglyLinkedNode::TrashList::Append(const AllClientData& deletedClient) {
     Node* newNode = new Node(deletedClient);
     
     if (!head) {
@@ -286,7 +286,7 @@ void SinglyLinkedNode::TrashList::Append(const Clients::AllClientData& deletedCl
 }
 
 //this function will prepend a deleted client to the beginning of the list.
-void SinglyLinkedNode::TrashList::Prepend(const Clients::AllClientData& deletedClient) {
+void SinglyLinkedNode::TrashList::Prepend(const AllClientData& deletedClient) {
     Node* newNode = new Node(deletedClient);
     
     if (!head) {
@@ -322,7 +322,7 @@ bool SinglyLinkedNode::TrashList::Restore(Clients& clients, int id) {
     while (current) {
         if (current->clientInfo.clientInfo.id == id) {
             int updatedCapacity = clients.capacity + 1;
-            Clients::AllClientData* updatedClients = new Clients::AllClientData[updatedCapacity];
+            AllClientData* updatedClients = new AllClientData[updatedCapacity];
 
             for (int i = 0; i < clients.capacity; ++i) {
                 updatedClients[i] = clients.clientFile[i];

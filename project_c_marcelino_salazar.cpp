@@ -1,5 +1,5 @@
-/* TO RUN USE: g++ project_b_marcelino_salazar.cpp clients.cpp -o project_b_marcelino_salazar
-./project_b_marcelino_salazar*/
+/* TO RUN USE: g++ project_c_marcelino_salazar.cpp clients.cpp -o project_c_marcelino_salazar
+./project_c_marcelino_salazar*/
 
 #include <iostream>
 #include "clients.h"
@@ -43,6 +43,9 @@ int main() {
         viewClients.sortClients();
         cout << "Clients sorted:\n";
         viewClients.fullprint();
+    
+    /*} else if (option == 6) {
+        viewClients.printTrash();*/
 
     } else if (option == 6) {
         cout << "Closing...";
