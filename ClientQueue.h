@@ -52,5 +52,19 @@ class Queue {
         delete nodeToDelete;
         return true;
      }
+
+     //adding a method to display the queue. using logic from printdeletedclients().
+     void PrintQueueClients() const {
+        QueueNode* current = front;
+
+        if (front) {
+            cout << "Queue is Empty" << endl;
+            return;
+        }
+    
+        while (current) {
+            current->clientData.print();
+            current = current->next;
+     }
     };
 #endif
