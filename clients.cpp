@@ -315,25 +315,45 @@ bool SinglyLinkedNode::TrashList::Search(int id) const {
 }
 
 //creating a restore function that will allow users to restore deleted files
-bool SinglyLinkedNode::TrashList::Restore(Clients& clients, int id) {
-    Node* current = head;
+bool SinglyLinkedNode::TrashList::Restore(Clients& clients, int id) { // restore function that was declared inside TrashList class which is nested inside SinglyLinkedNode class.
+    //parameter passes a reference from the Clients class in order to directly make changes and anid number.
+    Node* current = head; //current points either to nullptr or the first node
     Node* prev = nullptr;
 
-    while (current) {
-        if (current->clientInfo.clientInfo.id == id) {
-            int updatedCapacity = clients.capacity + 1;
-            AllClientData* updatedClients = new AllClientData[updatedCapacity];
+    while (current) { //while current does not point to nullptr
+        if (current->clientInfo.clientInfo.id == id) { //access first node's data which is an object of the AllClientData struct and accesses clientData struct object clientInfo to access id.
+            int updatedCapacity = clients.capacity + 1; //updates capacity stored in Client class through the clients reference object
+            AllClientData* updatedClients = new AllClientData[updatedCapacity]; //a new array of AllClientData struct and stores first element into updatedClients pointer.
 
-            for (int i = 0; i < clients.capacity; ++i) {
+            for (int i = 0; i < clients.capacity; ++i) { //copy each element from old array into new array updatedClients.
                 updatedClients[i] = clients.clientFile[i];
             }
 
-            updatedClients[clients.capacity] = current->clientInfo;
+            updatedClients[clients.capacity] = current->clientInfo; //adds matched id element to the end of the new array
 
-            delete[] clients.clientFile;
-            clients.clientFile = updatedClients;
-            clients.capacity = updatedCapacity;
+            delete[] clients.clientFile; //delete old data array
+            clients.clientFile = updatedClients; //re-assign old array to updated data array
+            clients.capacity = updatedCapacity; //directly update capacity in the Clients class using the clients reference
+
+            //here I will need to remove the node restored from the trash.
+            if (prev == nullptr) {
+                head = current->next;
+            } else {
+                prev->next = current->next;
+            }
+            
+            if (current == tail) {
+                tail = prev;
+            }
+
+            delete current; //delete node from the trash list
+            return true; //ends function operations
         }
-
+        //if the first node did not match traveerse to the next node.
+        prev = current;
+        current = current->next;
     }
+    
+    cout << "No matches found." << endl; 
+    return false; //no matches
 }
