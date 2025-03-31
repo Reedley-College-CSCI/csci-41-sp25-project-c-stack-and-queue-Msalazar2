@@ -2,6 +2,7 @@
 #define CLIENTQUEUE_H
 #include <iostream>
 #include "clients.h"
+
 using namespace std;
 
 // Node to store an item in a linked-list-based queue

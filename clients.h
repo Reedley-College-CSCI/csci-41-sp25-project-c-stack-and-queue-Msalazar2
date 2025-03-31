@@ -6,7 +6,7 @@
 #include <sstream>
 #include <string>
 #include "SortTracker.h"
-#include "ClientQueue.h"
+
 using namespace std;
 
 struct ClientData {

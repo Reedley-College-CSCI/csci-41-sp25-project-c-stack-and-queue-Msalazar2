@@ -1,6 +1,7 @@
 #include <iostream>
 #include "clients.h"
 #include "SortTracker.h"
+#include "ClientQueue.h"
 
 Clients::Clients() {
     clientFile = nullptr;
@@ -312,7 +313,7 @@ void Clients::printTrash() const {
     trashbin.PrintDeletedClients();
 }
 
-//adding method that adds a recently added client to followupqueue
+//adding function that adds a recently added client to followupqueue
 void Clients::enqueueClient() {
     followUpQueue.Enqueue(clientFile[capacity -1]);
 }
@@ -322,6 +323,10 @@ void Clients::dequeueClient() {
     followUpQueue.Dequeue();
 }
 
+//adding function to display folowupqueue
+void Clients::printQueue() const {
+    followUpQueue.PrintQueueClients();
+}
 
 //creating function to append deleted clients to the end of the list
 void SinglyLinkedNode::TrashList::Append(const AllClientData& deletedClient) {
