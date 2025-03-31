@@ -182,8 +182,6 @@ void Clients::addClient() {  //here I create a function to add a new client file
     clientFile = newClientArray; //this re-assigns clientFile with the new array created.
     capacity++; //this updates the array size for the next iteration
 
-    clientFile[capacity - 1].print();
-
     ofstream outfile("bank_full.csv", ios::app);
     if (outfile.is_open()) {
         outfile << clientFile[capacity - 1].clientInfo.age << ";"
@@ -203,7 +201,8 @@ void Clients::addClient() {  //here I create a function to add a new client file
                 << clientFile[capacity - 1].campaignInfo.previous << ";"
                 << clientFile[capacity - 1].campaignInfo.poutcome << "\n";
         outfile.close();
-    clientFile[capacity - 1].print();
+    
+        clientFile[capacity - 1].print();
 }
 }
 
@@ -239,6 +238,7 @@ void Clients::removeClient() {
         }
     }
 
+    trashbin.Append(clientFile[removeIndex]); //append the removed file to the trashlist before deleting.
     delete[] clientFile;
     clientFile = newClientArray;
     capacity--;
