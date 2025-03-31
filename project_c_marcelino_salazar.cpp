@@ -26,7 +26,7 @@ int main() {
     cout << "-----------------------" << endl;
 
     if (cin.fail()) {
-        cout << "Invalid input. Enter valid input: 1,2,3,4,5,6" << endl;
+        cout << "Invalid input. Enter valid input: 1,2,3,4,5,6,7,8" << endl;
         cout << "-----------------------" << endl;
         
     } else if (option == 1) {
@@ -57,7 +57,7 @@ int main() {
         break;
     
     } else {
-        cout << "Invalid input. Enter valid input: 1,2,3,4,5" << endl;
+        cout << "Invalid input. Enter valid input: 1,2,3,4,5,6,7,8" << endl;
         cout << "-----------------------" << endl;
     }
 }
