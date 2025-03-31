@@ -122,7 +122,7 @@ class SinglyLinkedNode { //singly linked list to implement a trash bin.
         bool Search (int id) const;
         bool Remove(int id);
         bool Restore(Clients& clients, int id);
-        void PrintDeletedClients();
+        void PrintDeletedClients() const;
     };
 };
 
@@ -143,7 +143,7 @@ class Clients { //here I added a class to hold structs
         void addClient();
         void removeClient();
         void restoreClient();
-        void printTrash();
+        void printTrash() const;
 
         private: 
          SinglyLinkedNode::TrashList trashbin;

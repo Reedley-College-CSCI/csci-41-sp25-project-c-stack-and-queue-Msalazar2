@@ -3,6 +3,8 @@
 #include "SortTracker.h"
 
 Clients::Clients() {
+    clientFile = nullptr;
+    capacity = 0;
     loadfile();
 }
 
@@ -293,7 +295,7 @@ void SinglyLinkedNode::TrashList::Append(const AllClientData& deletedClient) {
 }
 
 void Clients::printTrash() const {
-    trashbin.PrintDeletedClients()
+    trashbin.PrintDeletedClients();
 }
 
 //this function will prepend a deleted client to the beginning of the list.
@@ -369,7 +371,7 @@ bool SinglyLinkedNode::TrashList::Restore(Clients& clients, int id) { // restore
     return false; //no matches
 }
 
-void SinglyLinkedNode::TrashList::PrintDeletedClients() {
+void SinglyLinkedNode::TrashList::PrintDeletedClients() const {
     Node* current = head;
     
     if (!current) {
