@@ -1,7 +1,7 @@
 #include <iostream>
 #include "clients.h"
 #include "SortTracker.h"
-#include "ClientQueue.h"
+#include "Queue.h"
 
 Clients::Clients() {
     clientFile = nullptr;
@@ -315,7 +315,7 @@ void Clients::printTrash() const {
 
 //adding function that adds a recently added client to followupqueue
 void Clients::enqueueClient() {
-    followUpQueue.Enqueue(clientFile[capacity -1]);
+    followUpQueue.Enqueue(&clientFile[capacity -1]);
 }
 
 //adding function to remove the front

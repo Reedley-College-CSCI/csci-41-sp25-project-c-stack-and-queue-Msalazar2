@@ -4,7 +4,7 @@
 #include <iostream>
 #include "clients.h"
 #include "SortTracker.h"
-#include "ClientQueue.h"
+#include "Queue.h"
 
 using namespace std;
 
