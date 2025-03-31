@@ -272,6 +272,13 @@ void Clients::removeClient() {
         cout << "Error: Could not update the file after removing the client" << endl;
     }
 };
+
+void Clients::restoreClient() {
+    int id;
+    cout << "Enter ID to restore: ";
+    cin >> id;
+    trashbin.Restore(*this, id);
+}
 //creating function to append deleted clients to the end of the list
 void SinglyLinkedNode::TrashList::Append(const AllClientData& deletedClient) {
     Node* newNode = new Node(deletedClient);
@@ -283,6 +290,10 @@ void SinglyLinkedNode::TrashList::Append(const AllClientData& deletedClient) {
         tail->next = newNode;
         tail = newNode;
     }
+}
+
+void Clients::printTrash() const {
+    trashbin.PrintDeletedClients()
 }
 
 //this function will prepend a deleted client to the beginning of the list.
@@ -356,4 +367,18 @@ bool SinglyLinkedNode::TrashList::Restore(Clients& clients, int id) { // restore
     
     cout << "No matches found." << endl; 
     return false; //no matches
+}
+
+void SinglyLinkedNode::TrashList::PrintDeletedClients() {
+    Node* current = head;
+    
+    if (!current) {
+        cout << "Trash bin Empty" << endl;
+        return;
+    }
+
+    while (current) {
+        current->clientInfo.print();
+        current = current->next;
+    }
 }

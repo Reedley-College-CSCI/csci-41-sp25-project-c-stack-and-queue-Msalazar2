@@ -143,6 +143,7 @@ class Clients { //here I added a class to hold structs
         void addClient();
         void removeClient();
         void restoreClient();
+        void printTrash();
 
         private: 
          SinglyLinkedNode::TrashList trashbin;

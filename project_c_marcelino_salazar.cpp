@@ -17,7 +17,9 @@ int main() {
     cout << "3. Add new client file" << endl;
     cout << "4. Remove client file" << endl;
     cout << "5. Sort Descending (highest to lowest balance)" << endl;
-    cout << "6. Quit" << endl;
+    cout << "6. View Trash bin" << endl;
+    cout << "7. Restore client" << endl;
+    cout << "8. Quit" << endl;
     cout << "Enter option (1,2,3,4,5,6): ";
     int option;
     cin >> option;
@@ -44,10 +46,13 @@ int main() {
         cout << "Clients sorted:\n";
         viewClients.fullprint();
     
-    /*} else if (option == 6) {
-        viewClients.printTrash();*/
-
     } else if (option == 6) {
+        viewClients.printTrash();
+
+    } else if (option == 7) {
+        viewClients.restoreClient();
+
+    } else if (option == 8) {
         cout << "Closing...";
         break;
     
