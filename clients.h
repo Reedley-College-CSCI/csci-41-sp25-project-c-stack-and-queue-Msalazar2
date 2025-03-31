@@ -146,8 +146,8 @@ class Clients { //here I added a class to hold structs
         void restoreClient();
         void printTrash() const;
         void printQueue() const;
-        void enqueue();
-        void dequeue();
+        void enqueueClient();
+        void dequeueClient();
 
         private: 
          SinglyLinkedNode::TrashList trashbin;

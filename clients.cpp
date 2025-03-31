@@ -307,6 +307,22 @@ if (outfile.is_open()) {
 }
 
 }
+
+void Clients::printTrash() const {
+    trashbin.PrintDeletedClients();
+}
+
+//adding method that adds a recently added client to followupqueue
+void Clients::enqueueClient() {
+    followUpQueue.Enqueue(clientFile[capacity -1]);
+}
+
+//adding function to remove the front
+void Clients::dequeueClient() {
+    followUpQueue.Dequeue();
+}
+
+
 //creating function to append deleted clients to the end of the list
 void SinglyLinkedNode::TrashList::Append(const AllClientData& deletedClient) {
     Node* newNode = new Node(deletedClient);
@@ -318,10 +334,6 @@ void SinglyLinkedNode::TrashList::Append(const AllClientData& deletedClient) {
         tail->next = newNode;
         tail = newNode;
     }
-}
-
-void Clients::printTrash() const {
-    trashbin.PrintDeletedClients();
 }
 
 //this function will prepend a deleted client to the beginning of the list.

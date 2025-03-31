@@ -4,6 +4,7 @@
 #include <iostream>
 #include "clients.h"
 #include "SortTracker.h"
+#include "ClientQueue.h"
 
 using namespace std;
 
@@ -19,14 +20,17 @@ int main() {
     cout << "5. Sort Descending (highest to lowest balance)" << endl;
     cout << "6. View Trash bin" << endl;
     cout << "7. Restore client" << endl;
-    cout << "8. Quit" << endl;
-    cout << "Enter option (1,2,3,4,5,6): ";
+    cout << "8. Enqueue recently added client" << endl;
+    cout << "9. Dequeue client" << endl;
+    cout << "10. View Follow up queue" << endl;
+    cout << "11. Quit" << endl;
+    cout << "Enter option (1,2,3,4,5,6,7,8,9,10,11): ";
     int option;
     cin >> option;
     cout << "-----------------------" << endl;
 
     if (cin.fail()) {
-        cout << "Invalid input. Enter valid input: 1,2,3,4,5,6,7,8" << endl;
+        cout << "Invalid input. Enter valid input: 1,2,3,4,5,6,7,8,9,10,11" << endl;
         cout << "-----------------------" << endl;
         
     } else if (option == 1) {
@@ -53,11 +57,20 @@ int main() {
         viewClients.restoreClient();
 
     } else if (option == 8) {
+        viewClients.enqueueClient();
+
+    } else if (option == 9) {
+        viewClients.dequeueClient();
+
+    } else if (option == 10) {
+        viewClients.printQueue();
+
+    } else if (option == 11) {
         cout << "Closing...";
         break;
     
     } else {
-        cout << "Invalid input. Enter valid input: 1,2,3,4,5,6,7,8" << endl;
+        cout << "Invalid input. Enter valid input: 1,2,3,4,5,6,7,8,9,10,11" << endl;
         cout << "-----------------------" << endl;
     }
 }
