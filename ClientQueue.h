@@ -14,4 +14,43 @@ public:
       next = nextNode;
    }
 };
+
+class Queue {
+    private:
+       QueueNode* front;
+       QueueNode* end;
+    
+    public:
+       Queue() {
+          front = nullptr;
+          end = nullptr;
+       }
+
+    void Enqueue(const AllClientData& newClient) {
+        QueueNode* newNode;
+        newNode = new QueueNode(newClient);
+        if (nullptr == front) {
+           front = newNode;
+        }
+        else {
+           end->next = newNode;
+        }
+        end = newNode;
+     }
+     
+     bool Dequeue() {
+        if (front == nullptr) {
+            return false;
+         }
+         QueueNode* nodeToDelete = front;
+         front = front->next;
+     
+        if (front == nullptr) {
+           end = nullptr;
+        }
+        
+        delete nodeToDelete;
+        return true;
+     }
+    };
 #endif
