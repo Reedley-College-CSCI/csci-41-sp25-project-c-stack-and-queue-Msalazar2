@@ -280,6 +280,32 @@ void Clients::restoreClient() {
     cout << "Enter ID to restore: ";
     cin >> id;
     trashbin.Restore(*this, id);
+
+    ofstream outfile("bank_full.csv");
+if (outfile.is_open()) {
+    outfile << "age;job;marital;education;default;balance;housing;loan;contact;day;month;duration;campaign;pdays;previous;poutcome\n";
+
+    for (int i = 0; i < capacity; i++) {
+        outfile << clientFile[i].clientInfo.age << ";"
+                << clientFile[i].clientInfo.job << ";"
+                << clientFile[i].clientInfo.marital << ";"
+                << clientFile[i].clientInfo.education << ";"
+                << clientFile[i].clientBankInfo.defaulted << ";"
+                << clientFile[i].clientBankInfo.balance << ";"
+                << clientFile[i].clientBankInfo.housing << ";"
+                << clientFile[i].clientBankInfo.loan << ";"
+                << clientFile[i].campaignInfo.contact << ";"
+                << clientFile[i].campaignInfo.day << ";"
+                << clientFile[i].campaignInfo.month << ";"
+                << clientFile[i].campaignInfo.duration << ";"
+                << clientFile[i].campaignInfo.campaign << ";"
+                << clientFile[i].campaignInfo.pdays << ";"
+                << clientFile[i].campaignInfo.previous << ";"
+                << clientFile[i].campaignInfo.poutcome << "\n";
+    }
+    outfile.close();
+}
+
 }
 //creating function to append deleted clients to the end of the list
 void SinglyLinkedNode::TrashList::Append(const AllClientData& deletedClient) {
