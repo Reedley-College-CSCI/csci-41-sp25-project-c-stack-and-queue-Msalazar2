@@ -9,8 +9,8 @@ public:
    AllClientData data;
    QueueNode* next;
    
-   QueueNode(int dataValue, QueueNode* nextNode = nullptr) {
-      data = dataValue;
+   QueueNode(const AllClientData& clientData, QueueNode* nextNode = nullptr) {
+      data = clientData;
       next = nextNode;
    }
 };
