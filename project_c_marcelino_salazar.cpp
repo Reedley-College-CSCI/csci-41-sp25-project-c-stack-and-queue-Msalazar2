@@ -1,5 +1,7 @@
-/* TO RUN USE: g++ project_c_marcelino_salazar.cpp clients.cpp -o project_c_marcelino_salazar
-./project_c_marcelino_salazar*/
+/* TO RUN USE:
+g++ -std=c++11 project_c_marcelino_salazar.cpp clients.cpp queue.cpp -o project_c_marcelino_salazar
+./project_c_marcelino_salazar
+*/
 
 #include <iostream>
 #include "clients.h"
