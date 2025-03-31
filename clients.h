@@ -6,6 +6,7 @@
 #include <sstream>
 #include <string>
 #include "SortTracker.h"
+#include "ClientQueue.h"
 using namespace std;
 
 struct ClientData {
@@ -147,6 +148,7 @@ class Clients { //here I added a class to hold structs
 
         private: 
          SinglyLinkedNode::TrashList trashbin;
+         Queue followUpQueue;
 
          //helper functions to declare functions in private.
          int Partition(AllClientData* clientBalance, int lowIndex, int highIndex, SortTracker& tracker, bool isAscending);

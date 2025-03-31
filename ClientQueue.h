@@ -63,8 +63,9 @@ class Queue {
         }
     
         while (current) {
-            current->clientData.print();
+            current->data.print();
             current = current->next;
-     }
-    };
+        }
+    }
+};
 #endif
